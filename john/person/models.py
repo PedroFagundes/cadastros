@@ -5,15 +5,36 @@ from django.db import models
 class CityRegion(models.Model):
     description = models.CharField(u'Descrição', max_length=50, blank=False, null=False)
 
+    class Meta:
+        verbose_name = 'Região'
+        verbose_name_plural = 'Regiões'
+
+    def __unicode__(self):
+        return unicode(self.description)
+
 
 class City(models.Model):
     name = models.CharField(u'Nome', max_length=50, blank=False, null=False)
+
+    class Meta:
+        verbose_name = 'Cidade'
+        verbose_name_plural = 'Cidades'
+
+    def __unicode__(self):
+        return unicode(self.name)
 
 
 class CityNeighborhood(models.Model):
     city = models.ForeignKey(City, verbose_name='Cidade', default=1)
     name = models.CharField('Nome', max_length=50, blank=False, null=False)
     city_region = models.ForeignKey(CityRegion, verbose_name='Região')
+
+    class Meta:
+        verbose_name = 'Bairro'
+        verbose_name_plural = 'Bairros'
+
+    def __unicode__(self):
+        return unicode(self.name)
 
 
 class Person(models.Model):
@@ -33,3 +54,10 @@ class Person(models.Model):
     birthdate = models.DateField(u'Data de aniversário', blank=True, null=True)
     sex = models.CharField(u'Sexo', max_length=1, choices=PERSON_SEX_CHOICES, blank=True, null=True)
     cpf = models.CharField('CPF', max_length=14, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Pessoa'
+        verbose_name_plural = 'Pessoas'
+
+    def __unicode__(self):
+        return unicode(self.name)
