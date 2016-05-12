@@ -14,7 +14,7 @@ class PhoneInput(InputMask):
 
 
 class MobilePhoneInput(InputMask):
-    mask = {'mask': '(99) 99999-9999'}
+    mask = {'mask': '(99) 9999-9999'}
 
 
 class ZipCodeInput(InputMask):
@@ -32,6 +32,9 @@ class CPFInput(InputMask):
 class PersonForm(forms.ModelForm):
     phone = forms.CharField(widget=PhoneInput, required=False)
     mobile_phone = forms.CharField(widget=MobilePhoneInput, required=False)
+    alternative_phone_1 = forms.CharField(widget=MobilePhoneInput, required=False)
+    alternative_phone_2 = forms.CharField(widget=MobilePhoneInput, required=False)
+    alternative_phone_3 = forms.CharField(widget=MobilePhoneInput, required=False)
     zip_code = forms.CharField(widget=ZipCodeInput, required=False)
     birthdate = forms.CharField(widget=DateInput, required=False)
     cpf = forms.CharField(widget=CPFInput, required=False)

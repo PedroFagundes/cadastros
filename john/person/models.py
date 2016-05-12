@@ -51,8 +51,11 @@ class Person(models.Model):
     zip_code = models.CharField('CEP', max_length=9, blank=True, null=True)
     phone = models.CharField('Telefone', max_length=14, blank=True, null=True)
     mobile_phone = models.CharField('Celular', max_length=16, blank=True, null=True)
+    alternative_phone_1 = models.CharField('Telefone alternativo 1', max_length=16, blank=True, null=True)
+    alternative_phone_2 = models.CharField('Telefone alternativo 2', max_length=16, blank=True, null=True)
+    alternative_phone_3 = models.CharField('Telefone alternativo 3', max_length=16, blank=True, null=True)
     birthdate = models.DateField(u'Data de aniversário', blank=True, null=True)
-    sex = models.CharField(u'Sexo', max_length=1, choices=PERSON_SEX_CHOICES, blank=True, null=True)
+    sex = models.CharField('Sexo', max_length=1, choices=PERSON_SEX_CHOICES, blank=True, null=True)
     cpf = models.CharField('CPF', max_length=14, blank=True, null=True)
 
     class Meta:
