@@ -54,7 +54,7 @@ class Person(models.Model):
     alternative_phone_1 = models.CharField('Telefone alternativo 1', max_length=16, blank=True, null=True)
     alternative_phone_2 = models.CharField('Telefone alternativo 2', max_length=16, blank=True, null=True)
     alternative_phone_3 = models.CharField('Telefone alternativo 3', max_length=16, blank=True, null=True)
-    birthdate = models.DateField(u'Data de aniversário', blank=True, null=True)
+    birthdate = models.CharField(u'Data de aniversário', max_length=10, blank=True, null=True)
     sex = models.CharField('Sexo', max_length=1, choices=PERSON_SEX_CHOICES, blank=True, null=True)
     cpf = models.CharField('CPF', max_length=14, blank=True, null=True)
 

@@ -44,9 +44,9 @@ class PersonForm(forms.ModelForm):
 
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ['name', 'address', 'neighborhood', 'get_region', 'city', 'phone', 'mobile_phone']
+    list_display = ['name', 'address', 'neighborhood', 'get_region', 'city', 'phone', 'mobile_phone', 'birthdate']
     list_filter = ['neighborhood__city_region', 'neighborhood']
-    search_fields = ['name']
+    search_fields = ['name', 'birthdate']
     form = PersonForm
 
     class Media:
